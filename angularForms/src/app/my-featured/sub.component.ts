@@ -3,17 +3,22 @@ import { MyServiceService } from '../my-service.service';
 
 @Component({
   selector: 'app-sub',
-  template: ` 
+  template: `
   <h3 [ngStyle]="{'color':'brown'}">Cours List!</h3>
-
-  <p *ngFor="let list of listOfCourses | async" [ngStyle]="{'color':'red','background-color':'skyblue'}">{{list}}</p>
+  <hr/>
+<p *ngFor="let list of listOfCourses | async" [ngStyle]="{'color':'red','background-color':'skyblue'}">{{list}}</p>
+  <hr/>
   `,
 })
 
 export class SubComponent implements OnInit {
-  listOfCourses;
-  constructor(private service: MyServiceService) {}
+ public listOfCourses;
+
+
+  constructor(private service: MyServiceService) {
+
+  }
   ngOnInit(): void {
-    this.listOfCourses= this.service.getList()
+    this.listOfCourses = this.service.getList();
   }
 }

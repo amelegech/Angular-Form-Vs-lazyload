@@ -5,7 +5,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SubComponent } from './my-featured/sub.component';
-//import { MyFeaturedModule } from './my-featured/my-featured.module';
 import { RouterModule } from '@angular/router';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
@@ -15,7 +14,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -25,17 +24,11 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatInputModule,
      MatButtonModule,
      RouterModule.forRoot([
-      {path:'',
-      loadChildren:()=> import('./my-featured/my-featured.module').then(module=>module.MyFeaturedModule)
+      {path: 'child',
+      loadChildren: () => import('./my-featured/my-featured.module').then(module => module.MyFeaturedModule)
     }
     ]),
      BrowserAnimationsModule,
-    
-
-    //MyFeaturedModule,
-   
-    //AppRoutingModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
